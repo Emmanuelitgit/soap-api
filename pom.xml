@@ -100,30 +100,58 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>3.2.0</version>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>3.5.0</version>
 				<executions>
 					<execution>
-						<id>xjc</id>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/score.wsdl</wsdl>
+									<packageName>com.soap.client.generated</packageName>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
 						<goals>
-							<goal>xjc</goal>
+							<goal>wsdl2java</goal>
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<sources>
-						<source>http://192.168.251.207:8101/DynamicsAx/Services/FCMServiceGroupv2</source>
-					</sources>
-					<outputDirectory>src/main/java</outputDirectory>
-					<clearOutputDir>false</clearOutputDir>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<!--	<build>-->
+<!--		<plugins>-->
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--			</plugin>-->
+
+<!--			<plugin>-->
+<!--				<groupId>org.codehaus.mojo</groupId>-->
+<!--				<artifactId>jaxb2-maven-plugin</artifactId>-->
+<!--				<version>3.2.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>xjc</id>-->
+<!--						<goals>-->
+<!--							<goal>xjc</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--				<configuration>-->
+<!--					<sources>-->
+<!--						<source>http://192.168.251.207:8101/DynamicsAx/Services/FCMServiceGroupv2</source>-->
+<!--					</sources>-->
+<!--					<outputDirectory>src/main/java</outputDirectory>-->
+<!--					<clearOutputDir>false</clearOutputDir>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
+<!--		</plugins>-->
+<!--	</build>-->
 </project>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://soap.spring.api.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.spring.api.com/" targetNamespace="http://soap.spring.api.com/">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://soap.spring.api.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.spring.api.com/" targetNamespace="http://soap.spring.api.com/">
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://soap.spring.api.com/">
-
             <xs:element name="GetScoreRequest">
                 <xs:complexType>
                     <xs:sequence>
@@ -9,7 +8,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-
             <xs:element name="GetScoreResponse">
                 <xs:complexType>
                     <xs:sequence>
@@ -17,7 +15,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-
             <xs:complexType name="score">
                 <xs:sequence>
                     <xs:element name="user" type="xs:string"/>
@@ -25,23 +22,18 @@
                     <xs:element name="losses" type="xs:int"/>
                 </xs:sequence>
             </xs:complexType>
-
         </xs:schema>
     </wsdl:types>
     <wsdl:message name="GetScoreRequest">
-        <wsdl:part element="tns:GetScoreRequest" name="GetScoreRequest">
-        </wsdl:part>
+        <wsdl:part element="tns:GetScoreRequest" name="GetScoreRequest"> </wsdl:part>
     </wsdl:message>
     <wsdl:message name="GetScoreResponse">
-        <wsdl:part element="tns:GetScoreResponse" name="GetScoreResponse">
-        </wsdl:part>
+        <wsdl:part element="tns:GetScoreResponse" name="GetScoreResponse"> </wsdl:part>
     </wsdl:message>
     <wsdl:portType name="ScorePort">
         <wsdl:operation name="GetScore">
-            <wsdl:input message="tns:GetScoreRequest" name="GetScoreRequest">
-            </wsdl:input>
-            <wsdl:output message="tns:GetScoreResponse" name="GetScoreResponse">
-            </wsdl:output>
+            <wsdl:input message="tns:GetScoreRequest" name="GetScoreRequest"> </wsdl:input>
+            <wsdl:output message="tns:GetScoreResponse" name="GetScoreResponse"> </wsdl:output>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="ScorePortSoap11" type="tns:ScorePort">
