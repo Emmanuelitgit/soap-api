@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="score" type="{http://soap.spring.api.com/}score"/&gt;
+ *         &lt;element name="product" type="{http://soap.spring.api.com/}product"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "score"
+    "product"
 })
-@XmlRootElement(name = "GetScoreResponse")
-public class GetScoreResponse {
+@XmlRootElement(name = "GetProductResponse")
+public class GetProductResponse {
 
     @XmlElement(required = true)
-    protected Score score;
+    protected Product product;
 
     /**
-     * Gets the value of the score property.
+     * Gets the value of the product property.
      * 
      * @return
      *     possible object is
-     *     {@link Score }
+     *     {@link Product }
      *     
      */
-    public Score getScore() {
-        return score;
+    public Product getProduct() {
+        return product;
     }
 
     /**
-     * Sets the value of the score property.
+     * Sets the value of the product property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Score }
+     *     {@link Product }
      *     
      */
-    public void setScore(Score value) {
-        this.score = value;
+    public void setProduct(Product value) {
+        this.product = value;
     }
 
 }
