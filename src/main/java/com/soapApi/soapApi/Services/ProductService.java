@@ -1,23 +1,39 @@
 package com.soapApi.soapApi.Services;
 
-import com.api.spring.soap.GetProductRequest;
-import com.api.spring.soap.GetProductResponse;
-import com.api.spring.soap.Product;
+import com.api.spring.soap.CreateProductRequest;
+import com.api.spring.soap.CreateProductResponse;
+import com.api.spring.soap.ServiceStatus;
+import com.soapApi.soapApi.Model.ProductEntity;
+import com.soapApi.soapApi.Respositories.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
 
-    public GetProductResponse createProduct(GetProductRequest request){
-        Product product = new Product();
-        product.setProduct(request.getProduct());
-        product.setPrice(request.getPrice());
-        product.setLocation(request.getLocation());
-        product.setStock(request.isStock());
-        product.setProductId(123555);
+    private final ProductRepository productRepository;
 
-        GetProductResponse productResponse = new GetProductResponse();
-        productResponse.setProduct(product);
-        return productResponse;
+    @Autowired
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    public CreateProductResponse createProduct(CreateProductRequest productRequest){
+
+        // saving incoming request to the database  via the product entity
+        ProductEntity product = new ProductEntity();
+        product.setProduct(productRequest.getProduct());
+        product.setPrice(productRequest.getPrice());
+        product.setLocation(productRequest.getLocation());
+        product.setStock(productRequest.isStock());
+        productRepository.save(product);
+
+        // sending back response in xml format to the client
+        CreateProductResponse response = new CreateProductResponse();
+        ServiceStatus status = new ServiceStatus();
+        status.setMessage("Product created successfully");
+        status.setStatus(200);
+        response.setResponseStatus(status);
+        return response;
     }
 }

@@ -1,7 +1,7 @@
 package com.soapApi.soapApi.Controllers;
 
-import com.api.spring.soap.GetProductRequest;
-import com.api.spring.soap.GetProductResponse;
+import com.api.spring.soap.CreateProductRequest;
+import com.api.spring.soap.CreateProductResponse;
 import com.soapApi.soapApi.Services.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,6 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class ProductController {
 
-    private static final Logger log = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
 
     @Autowired
@@ -22,10 +21,9 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PayloadRoot(namespace = "http://soap.spring.api.com/", localPart = "GetProductRequest")
+    @PayloadRoot(namespace = "http://soap.spring.api.com/", localPart ="CreateProductRequest")
     @ResponsePayload
-    public GetProductResponse createProduct(@RequestPayload GetProductRequest request){
-        log.info("in create product method:==============");
-        return productService.createProduct(request);
+    public CreateProductResponse createProduct(@RequestPayload CreateProductRequest productRequest){
+        return productService.createProduct(productRequest);
     }
 }

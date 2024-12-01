@@ -3,6 +3,12 @@
            targetNamespace="http://soap.spring.api.com/"
            elementFormDefault="qualified"
 >
+    <xs:complexType name="ServiceStatus">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+            <xs:element name="status" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
 
     <xs:element name="GetScoreRequest">
         <xs:complexType>
@@ -28,33 +34,23 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="GetProductRequest">
+    <xs:element name="CreateProductRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="product" type="xs:string"/>
-                <xs:element name="price" type="xs:decimal"/>
+                <xs:element name="price" type="xs:double"/>
                 <xs:element name="location" type="xs:string"/>
                 <xs:element name="stock" type="xs:boolean"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="GetProductResponse">
+    <xs:element name="CreateProductResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="product" type="tns:product"/>
+                <xs:element name="responseStatus" type="tns:ServiceStatus"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
-    <xs:complexType name="product">
-        <xs:sequence>
-            <xs:element name="product_id" type="xs:long"/>
-            <xs:element name="product" type="xs:string"/>
-            <xs:element name="price" type="xs:decimal"/>
-            <xs:element name="location" type="xs:string"/>
-            <xs:element name="stock" type="xs:boolean"/>
-        </xs:sequence>
-    </xs:complexType>
 
 </xs:schema>

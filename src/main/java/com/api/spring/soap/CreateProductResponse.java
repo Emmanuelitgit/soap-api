@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="user" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="responseStatus" type="{http://soap.spring.api.com/}ServiceStatus"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "user"
+    "responseStatus"
 })
-@XmlRootElement(name = "GetScoreRequest")
-public class GetScoreRequest {
+@XmlRootElement(name = "CreateProductResponse")
+public class CreateProductResponse {
 
     @XmlElement(required = true)
-    protected String user;
+    protected ServiceStatus responseStatus;
 
     /**
-     * Gets the value of the user property.
+     * Gets the value of the responseStatus property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link ServiceStatus }
      *     
      */
-    public String getUser() {
-        return user;
+    public ServiceStatus getResponseStatus() {
+        return responseStatus;
     }
 
     /**
-     * Sets the value of the user property.
+     * Sets the value of the responseStatus property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link ServiceStatus }
      *     
      */
-    public void setUser(String value) {
-        this.user = value;
+    public void setResponseStatus(ServiceStatus value) {
+        this.responseStatus = value;
     }
 
 }

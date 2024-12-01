@@ -2,7 +2,6 @@ package com.soapApi.soapApi.Controllers;
 
 import com.api.spring.soap.GetScoreRequest;
 import com.api.spring.soap.GetScoreResponse;
-import com.api.spring.soap.Score;
 import com.soapApi.soapApi.Services.ScoreService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
